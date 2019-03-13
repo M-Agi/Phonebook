@@ -13,52 +13,40 @@ void PhoneBook::AddNewPerson(Person b)
 void PhoneBook::RemovePerson(Person p)
 {
 
-	int counter = 0;
 	for (unsigned i = 0; i < phonebook.size(); ++i) 
 	{
 		if (phonebook[i].name == p.name) 
 		{
 			phonebook.erase(phonebook.begin() + i);
 			std::cout << p.name << " is removed from the phonebook." << std::endl;
-			counter += 1;
-			break;
+			return;
 		}
 	}
-	if (counter == 0) 
-	{
-		
-		std::cout << "There is no " << p.name << " in the phonebook." << std::endl;
-	}
-
+	
+	std::cout << "There is no " << p.name << " in the phonebook." << std::endl;
+	
 };
 
 
 Person* PhoneBook::FindPerson(std::string name) 
 {
 
-	Person* ptr = nullptr;
-
 	for (unsigned i = 0; i < phonebook.size(); ++i) 
 	{
 		if (phonebook[i].name == name) 
 		{
 			std::cout << "Found " << name << " in the phonebook." << std::endl;
-			ptr = &phonebook[i];
+			return &phonebook[i];
 		}
 
 	}
-	if (ptr == nullptr) 
-	{
-		std::cout << "There is no " << name << " in the phonebook." << std::endl;
-	}
 
-	return ptr;
+	std::cout << "There is no " << name << " in the phonebook." << std::endl;
+	return nullptr;
 };
 
 Person* PhoneBook::FindPhonenumber(std::string phone) 
 {
-
-	Person* ptr = nullptr;
 
 	for (unsigned i = 0; i < phonebook.size(); ++i) 
 	{
@@ -69,23 +57,15 @@ Person* PhoneBook::FindPhonenumber(std::string phone)
 			if (phonebook[i].phones[j] == phone)
 			{
 				std::cout << "Found " << phone << " in the phonebook." << std::endl;
-				ptr = &phonebook[i];
-				break;
+				return &phonebook[i];
 			};
 		}
-		if (ptr == nullptr) 
-		{
-			break;
-		};
+
 	}
 
+	std::cout << "There is no " << phone << " in the phonebook." << std::endl;
 
-	if (ptr == nullptr)
-	{
-		std::cout << "There is no " << phone << " in the phonebook." << std::endl;
-	}
-
-	return ptr;
+	return nullptr;
 
 };
 
