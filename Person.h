@@ -10,8 +10,9 @@ public:
 	
 	void AddNewNumber(std::string phone);
 
-
+private:
 	std::string name;
 	std::vector<std::string> phones;
 
+	friend class PhoneBook;
 };
