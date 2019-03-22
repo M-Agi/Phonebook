@@ -14,6 +14,7 @@ public:
 	void AddPhoneToPerson(Person* person, std::string phone);
 	std::ostream & SavePhoneBook(std::ostream& dest);
 
+private:
 	// Ezt kell majd kimockolni:
 	std::vector<Person> phonebook;
 };
